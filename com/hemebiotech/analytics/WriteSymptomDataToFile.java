@@ -13,9 +13,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
-        try (FileWriter writer = new FileWriter(new File("results.out"))) {
-            // I'm using the TreeSet to sort my symptoms
-            for (String symptom : new TreeSet<>(symptoms.keySet())) {
+        try (FileWriter writer = new FileWriter(new File("result.out"))) {
+            for (String symptom : symptoms.keySet()) {
                 writer.write(symptom + ": " + symptoms.get(symptom) + "\n");
             }
         } catch (IOException e) {
